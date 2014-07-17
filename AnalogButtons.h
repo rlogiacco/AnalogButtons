@@ -55,6 +55,8 @@ public:
 	inline void held() {
 		if (holdFunction)
 			(*holdFunction)();
+		else
+			pressed();
 	}
 private:
 	void (*clickFunction)(void);
@@ -82,9 +84,9 @@ private:
 public:
 	AnalogButtons(uint8_t pin, uint16_t debounce = 5, uint8_t margin = 10);
 
-	void addButton(Button button);
+	void add(Button button);
 
-	void checkButtons();
+	void check();
 };
 
 #endif

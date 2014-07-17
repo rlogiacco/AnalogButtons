@@ -61,17 +61,17 @@ void setup()
   Serial.begin(9600); 
   Serial.println("Testing your Analog buttons");
   
-  analogButtons.addButton(b1);
-  analogButtons.addButton(b2);
-  analogButtons.addButton(b3);
-  analogButtons.addButton(b4);
-  analogButtons.addButton(b5);  
+  analogButtons.add(b1);
+  analogButtons.add(b2);
+  analogButtons.add(b3);
+  analogButtons.add(b4);
+  analogButtons.add(b5);  
  }
  
 void loop() 
 {  
   // To check values when button are pressed
-  analogButtons.checkButtons();
+  analogButtons.check();
   
   // To configure the MAX/Min values for each 
   // Button, uncomment this line, make sure you've called Serial.begin(9600); 

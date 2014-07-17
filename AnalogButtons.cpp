@@ -15,13 +15,13 @@ AnalogButtons::AnalogButtons(uint8_t pin, uint16_t debounce, uint8_t margin) {
 	this->margin = margin;
 }
 
-void AnalogButtons::addButton(Button button) {
+void AnalogButtons::add(Button button) {
 	if (buttonsCount < ANALOGBUTTONS_MAX_SIZE) {
     	buttons[buttonsCount++] = button;
   	}
 }
 
-void AnalogButtons::checkButtons() {
+void AnalogButtons::check() {
 	// In case this function gets called very frequently avoid sampling the analog pin too often: max frequency is 50Hz
 	if (millis() - time > 120) {
 		time = millis();
