@@ -42,7 +42,7 @@ public:
 	uint16_t interval;
 	boolean isHeldDown;
 
-	Button();
+	Button() {};
 	Button(uint16_t value, void (*clickFunction)(void) = 0, void (*holdFunction)(void) = 0, uint16_t holdDuration = 1000, uint16_t holdInterval = 250);
 
 	// Override these function if you want
