@@ -82,7 +82,7 @@ private:
 	Button* lastButtonPressed;
 
 public:
-	AnalogButtons(uint8_t pin, uint16_t debounce = 5, uint8_t margin = 10);
+	AnalogButtons(uint8_t pin, uint8_t mode, uint16_t debounce = 5, uint8_t margin = 10);
 
 	void add(Button button);
 

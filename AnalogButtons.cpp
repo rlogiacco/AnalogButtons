@@ -1,4 +1,5 @@
 #include "AnalogButtons.h"
+#include <Arduino.h>
 
 Button::Button(uint16_t value, void (*clickFunction)(void), void (*holdFunction)(void), uint16_t holdDuration, uint16_t holdInterval) {
 	this->value = value;
@@ -8,11 +9,12 @@ Button::Button(uint16_t value, void (*clickFunction)(void), void (*holdFunction)
 	this->holdFunction = holdFunction;
 }
 
-AnalogButtons::AnalogButtons(uint8_t pin, uint16_t debounce, uint8_t margin) {
+AnalogButtons::AnalogButtons(uint8_t pin, uint8_t mode, uint16_t debounce, uint8_t margin) {
 	this->pin = pin;
 	this->debounce = debounce;
 	this->counter = 0;
 	this->margin = margin;
+	pinMode(pin, mode);
 }
 
 void AnalogButtons::add(Button button) {
