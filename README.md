@@ -15,7 +15,7 @@ This work is largely inspired by the AnalogButtons library available in the Ardu
 
 Contributions are welcome under the [Apache Public License version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html).
 
-For wiring instructions please refer to the [sample schematics] (https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/schematic.png).
+For wiring instructions please refer to the [sample schematics] (https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/schematic.png) or, if you prefer, to the [sample breadboard] (https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/breadboard.png).
 
 
 Usage
