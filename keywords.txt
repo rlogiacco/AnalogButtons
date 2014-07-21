@@ -13,8 +13,8 @@ Button	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
-addButton	KEYWORD2
-checkButtons	KEYWORD2
+add	KEYWORD2
+check	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
