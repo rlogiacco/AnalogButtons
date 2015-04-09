@@ -1,7 +1,7 @@
 #include "AnalogButtons.h"
 #include <Arduino.h>
 
-Button::Button(uint16_t value, void (*clickFunction)(void), void (*holdFunction)(void), uint16_t holdDuration, uint16_t holdInterval) {
+Analog::Button::Button(uint16_t value, void (*clickFunction)(void), void (*holdFunction)(void), uint16_t holdDuration, uint16_t holdInterval) {
 	this->value = value;
 	this->duration = holdDuration;
 	this->interval = holdInterval;
@@ -9,21 +9,20 @@ Button::Button(uint16_t value, void (*clickFunction)(void), void (*holdFunction)
 	this->holdFunction = holdFunction;
 }
 
-AnalogButtons::AnalogButtons(uint8_t pin, uint8_t mode, uint16_t debounce, uint8_t margin) {
+Analog::Buttons::Buttons(uint8_t pin, uint16_t debounce, uint8_t margin) {
 	this->pin = pin;
 	this->debounce = debounce;
 	this->counter = 0;
 	this->margin = margin;
-	pinMode(pin, mode);
 }
 
-void AnalogButtons::add(Button button) {
+void Analog::Buttons::add(Button button) {
 	if (buttonsCount < ANALOGBUTTONS_MAX_SIZE) {
-    	buttons[buttonsCount++] = button;
-  	}
+		buttons[buttonsCount++] = button;
+	}
 }
 
-void AnalogButtons::check() {
+void Analog::Buttons::check() {
 	// In case this function gets called very frequently avoid sampling the analog pin too often: max frequency is 50Hz
 	if (millis() - time > 120) {
 		time = millis();
