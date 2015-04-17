@@ -1,4 +1,4 @@
-#include "AgileButtons.h"
+#include "AnalogButtons.h"
 
 #define ANALOG_PIN A1
 
@@ -73,14 +73,15 @@ void loop()
   // To check values when button are pressed
   analogButtons.check();
   
-  // To configure the MAX/Min values for each 
-  // Button, uncomment this line, make sure you've called Serial.begin(9600); 
-  // Then in turn hold down each botton, noting the max/min values
+  // To configure the MAX/Min values for each button: 
+  // uncomment the following line and make sure you've called Serial.begin(9600) 
+  // Then in turn hold down each button, noting down the max/min values
   
   //configure();
 }
 
 void configure() {
-	Serial.println(analogRead(ANALOG_PIN));
-	delay(150);
+	unsigned int value = analogRead(ANALOG_PIN);
+	Serial.println(value);
+	delay(250);
 }
