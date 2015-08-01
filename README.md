@@ -1,4 +1,4 @@
-AnalogButtons
+AnalogButtons [![Build Status](https://travis-ci.org/rlogiacco/AnalogButtons.svg?branch=master)](https://travis-ci.org/rlogiacco/AnalogButtons)
 =============
 
 In order to reduce the number of pins used by some projects, sketches can use this library to wire multiple buttons to one single analog pin.
