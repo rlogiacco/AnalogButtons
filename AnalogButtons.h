@@ -33,6 +33,8 @@
 #define ANALOGBUTTONS_MAX_SIZE 8
 #endif 
 
+namespace Analog {
+
 class Button {
 public:
 	uint16_t value;
@@ -63,7 +65,7 @@ private:
 	void (*holdFunction)(void);
 };
 
-class AnalogButtons {
+class Buttons {
 private:
 	uint32_t previousMillis;
 	uint16_t debounce;
@@ -82,11 +84,13 @@ private:
 	Button* lastButtonPressed;
 
 public:
-	AnalogButtons(uint8_t pin, uint8_t mode, uint16_t debounce = 5, uint8_t margin = 10);
+	Buttons(uint8_t pin, uint16_t debounce = 5, uint8_t margin = 10);
 
 	void add(Button button);
 
 	void check();
 };
+
+} // end namespace Analog
 
 #endif

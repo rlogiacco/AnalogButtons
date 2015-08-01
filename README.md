@@ -15,7 +15,7 @@ This work is largely inspired by the AnalogButtons library available in the Ardu
 
 Contributions are welcome under the [Apache Public License version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html).
 
-For wiring instructions please refer to the [sample schematics] (https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/schematic.png) or, if you prefer, to the [sample breadboard] (https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/breadboard.png).
+For wiring instructions please refer to the [sample schematics](https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/schematic.png) or, if you prefer, to the [sample breadboard](https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/breadboard.png).
 
 
 Usage
@@ -40,7 +40,7 @@ In its simplest form, a button definition resemble something like the following 
 void aButtonClick() {
   // do something
 }
-Button aButton = Button(512, &aButtonClick);
+Analog::Button aButton = Analog::Button(512, &aButtonClick);
 ```
 
 In its most evoluted form a button definition looks like the following.
@@ -53,7 +53,7 @@ void aButtonClick() {
 void aButtonHold() {
   // do something else
 }
-Button aButton = Button(512, &aButtonClick, &aButtonHold, 5000, 50);
+Analog::Button aButton = Analog::Button(512, &aButtonClick, &aButtonHold, 5000, 50);
 ```
 
 
@@ -67,7 +67,7 @@ Because buttons will share the same analog pin some configuration is required in
 * the `analog value margin` which takes into account slight resistance fluctuations and ADC errors transforming the button *value* into a range (defaults to 10)
 
 ```
-AnalogButtons analogButtons = AnalogButtons(A2);
+Analog::Buttons analogButtons = Analog::Buttons(A2);
 ```
 
 3. Setup
