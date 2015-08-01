@@ -13,7 +13,7 @@ install:
   - ln -s $PWD /usr/local/share/arduino/libraries/AnalogButtons
   
 script:
-  - arduino --verify --board ${BOARD} $PWD/examples/AnalogButtons/AnalogButtons.ino
+  - arduino --verify --verbose --board ${BOARD} $PWD/examples/AnalogButtons/AnalogButtons.ino
   
 notifications:
   email:
