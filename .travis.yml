@@ -30,7 +30,7 @@ env:
  - BOARD=arduino:avr:mega:cpu=atmega1280
  - BOARD=arduino:avr:mega:cpu=atmega2560
 # - BOARD=arduino:avr:megaADK
- - BOARD=arduino:avr:leonardo
+# - BOARD=arduino:avr:leonardo
 # - BOARD=arduino:avr:micro
 # - BOARD=arduino:avr:esplora
 # - BOARD=arduino:avr:mini:cpu=atmega168
