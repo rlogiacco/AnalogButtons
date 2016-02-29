@@ -5,8 +5,6 @@ In order to reduce the number of pins used by some projects, sketches can use th
 
 You can register a call-back function which gets called when a button is pressed or held down for the defined number of seconds.
 
-Includes a software key simple de-bouncing algorithm which can be tweaked and is based on the max sampling frequency of 50Hz (one sample every 120ms)
- 
 Minimum hold duration (time that must elapse before a button is considered being held) and hold interval (time that must elapse between each activation of the hold function) can both be configured.
 
 By default max number of buttons per pin is limited to 8 to limit memory consumption, but it can be controlled defining the `ANALOGBUTTONS_MAX_SIZE` macro ***before*** including this library.
@@ -15,13 +13,13 @@ This work is largely inspired by the AnalogButtons library available in the Ardu
 
 Contributions are welcome under the [Apache Public License version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html).
 
-For wiring instructions please refer to the [sample schematics] (https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/schematic.png) or, if you prefer, to the [sample breadboard] (https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/breadboard.png).
+
 
 
 Usage
 ============
 
-Basically the library usage can be divided into the following four steps. 
+Basically the library usage can be divided into the following four steps.
 
 1. Buttons definition
 ---------------------
@@ -63,11 +61,11 @@ Button aButton = Button(512, &aButtonClick, &aButtonHold, 5000, 50);
 Because buttons will share the same analog pin some configuration is required in order to distinguish and manage the different buttons:
 
 * the `analog pin` the buttons will be attached to
-* the `debounce frequency multiplier` which determines the minimum duration a button must remain pressed to be considered being *clicked* in order to avoid false positives (defaults to 5)
 * the `analog value margin` which takes into account slight resistance fluctuations and ADC errors transforming the button *value* into a range (defaults to 10)
 
 ```
-AnalogButtons analogButtons = AnalogButtons(A2);
+int8_t margin = 20;
+AnalogButtons analogButtons = AnalogButtons(A2,margin);
 ```
 
 3. Setup
@@ -84,7 +82,7 @@ analogButtons.add(anotherButton);
 4. Periodic verification
 ------------------------
 
-Now all you need is to periodically activate the analog buttons verification which checks the analog pin to determine if one of the many possible conditions occurred and fires the corresponding code. The following code goes into the `loop()` fnction and needs to be executed quite often so don't introduce any `delay(...)` otherwise it will not work as expected: 
+Now all you need is to periodically activate the analog buttons verification which checks the analog pin to determine if one of the many possible conditions occurred and fires the corresponding code. The following code goes into the `loop()` function and needs to be executed fast so don't introduce any `delay(...)` otherwise it will not work as expected:
 
 ```
 analogButtons.check();
