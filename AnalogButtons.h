@@ -30,7 +30,7 @@
 #endif
 
 #ifndef ANALOGBUTTONS_MAX_SIZE
-#define ANALOGBUTTONS_MAX_SIZE 8
+#define ANALOGBUTTONS_MAX_SIZE 5
 #endif 
 
 class Button {
@@ -41,9 +41,11 @@ public:
 	uint32_t duration;
 	uint16_t interval;
 	boolean isHeldDown;
+	boolean isClicked;
 
 	Button() {};
-	Button(uint16_t value, void (*clickFunction)(void) = 0, void (*holdFunction)(void) = 0, uint16_t holdDuration = 1000, uint16_t holdInterval = 250);
+	Button(uint16_t value, void (*clickFunction)(void));
+	Button(uint16_t value, void (*clickFunction)(void), void (*holdFunction)(void), uint16_t holdDuration, uint16_t holdInterval);
 
 	// Override these function if you want
 	inline void pressed() {
@@ -63,12 +65,12 @@ private:
 	void (*holdFunction)(void);
 };
 
+
+
+
 class AnalogButtons {
 private:
 	uint32_t previousMillis;
-	uint16_t debounce;
-	uint32_t time;
-	uint8_t counter;
 	uint8_t margin;
 
 	// AnalogPin
@@ -77,12 +79,8 @@ private:
 	uint8_t buttonsCount;
 	Button buttons[ANALOGBUTTONS_MAX_SIZE];
 
-
-	// last button pressed
-	Button* lastButtonPressed;
-
 public:
-	AnalogButtons(uint8_t pin, uint8_t mode, uint16_t debounce = 5, uint8_t margin = 10);
+	AnalogButtons(uint8_t pin, uint8_t margin = 10);
 
 	void add(Button button);
 
