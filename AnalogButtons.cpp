@@ -20,20 +20,31 @@ Button::Button(uint16_t value, void (*clickFunction)(void), void (*holdFunction)
 	this->clickFunction = clickFunction;
 	this->holdFunction = holdFunction;
 }
-
+/**
+ * Constructor AnalogButtons
+ * @param pin Analog Pin that will read al the data
+ * @param margin Let's you have a better accuracy when press a button, avodind the wrong data collection
+ */
 AnalogButtons::AnalogButtons(uint8_t pin, uint8_t margin) {
 	this->pin = pin;
 	this->margin = margin;
 }
 
+/**
+ * Add the Button to the list of buttons inside the AnalogButtons Object
+ * @param button Button you want to add
+ */
 void AnalogButtons::add(Button button) {
 	if (buttonsCount < ANALOGBUTTONS_MAX_SIZE) {
     	buttons[buttonsCount++] = button;
   	}
 }
 
+/**
+ * Checks the values asigned on every button with the respective +-margin for avoiding wrong data
+ */
 void AnalogButtons::check() {
-	// In case this function gets called very frequently avoid sampling the analog pin too often: max frequency is 50Hz
+
 		uint16_t reading = analogRead(pin);
 		for (uint8_t i = 0; i < buttonsCount; i++) {
 			if (reading >= buttons[i].value - margin && reading <= buttons[i].value + margin) {

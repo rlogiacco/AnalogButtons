@@ -8,14 +8,12 @@
  this library to wire multiple buttons to one single analog pin.
  You can register a call-back function which gets called when a button is
  pressed or held down for the defined number of seconds.
- Includes a software key de-bouncing simple algorithm which can be tweaked and
- is based on the max sampling frequency of 50Hz (one sample every 120ms)
- 
+
  Minimum hold duration (time that must elapse before a button is considered
  being held) and hold interval (time that must elapse between each activation
  of the hold function) can both be configured.
 
- By default max number of buttons per pin is limited to 8 for memory
+ By default max number of buttons per pin is limited to 5 for memory
  consumption reasons, but it can be controlled defining the
  ANALOGBUTTONS_MAX_SIZE macro _before_ including this library.
 
@@ -31,7 +29,7 @@
 
 #ifndef ANALOGBUTTONS_MAX_SIZE
 #define ANALOGBUTTONS_MAX_SIZE 5
-#endif 
+#endif
 
 class Button {
 public:
