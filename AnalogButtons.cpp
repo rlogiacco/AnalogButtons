@@ -27,7 +27,7 @@ void AnalogButtons::check() {
 	// In case this function gets called very frequently avoid sampling the analog pin too often: max frequency is 50Hz
 	if (millis() - time > 120) {
 		time = millis();
-		uint16_t reading = analogRead(pin);
+		int16_t reading = analogRead(pin);
 		for (uint8_t i = 0; i < buttonsCount; i++) {
 			if (reading >= buttons[i].value - margin && reading <= buttons[i].value + margin) {
 				
