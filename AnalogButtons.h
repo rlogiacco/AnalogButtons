@@ -35,7 +35,7 @@
 
 class Button {
 public:
-	uint16_t value;
+	int16_t value;
 
 	// hold information
 	uint32_t duration;
