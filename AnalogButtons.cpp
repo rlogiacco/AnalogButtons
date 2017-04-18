@@ -29,7 +29,7 @@ void AnalogButtons::check() {
 		time = millis();
 		uint16_t reading = analogRead(pin);
 		for (uint8_t i = 0; i < buttonsCount; i++) {
-			if (reading >= buttons[i].value - margin && reading <= buttons[i].value + margin) {
+			if ((int16_t)reading >= (int16_t)buttons[i].value - margin && reading <= buttons[i].value + margin) {
 				
 				if (lastButtonPressed != &buttons[i]) {
 					if (++counter >= debounce) {
