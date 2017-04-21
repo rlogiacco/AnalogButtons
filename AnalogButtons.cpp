@@ -20,10 +20,6 @@ AnalogButtons::AnalogButtons(uint8_t pin, uint8_t mode, uint16_t debounce, uint8
 void AnalogButtons::add(Button button) {
 	if (buttonsCount < ANALOGBUTTONS_MAX_SIZE) {
     	buttons[buttonsCount++] = button;
-    	if (button.value < margin) {
-    		// fix for issue #5
-    		button.value = margin;
-    	}
   	}
 }
 
@@ -33,7 +29,7 @@ void AnalogButtons::check() {
 		time = millis();
 		uint16_t reading = analogRead(pin);
 		for (uint8_t i = 0; i < buttonsCount; i++) {
-			if (reading >= buttons[i].value - margin && reading <= buttons[i].value + margin) {
+			if ((int16_t)reading >= (int16_t)buttons[i].value - margin && reading <= buttons[i].value + margin) {
 				
 				if (lastButtonPressed != &buttons[i]) {
 					if (++counter >= debounce) {
