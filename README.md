@@ -69,6 +69,7 @@ Button aButton = Button(512, &aButtonClick, &aButtonHold, 5000, 50);
 Because buttons will share the same analog pin some configuration is required in order to distinguish and manage the different buttons:
 
 * the `analog pin` the buttons will be attached to
+* the `pin mode` to set on the analog pin, it can either be `INPUT` (default value) or `INPUT_PULLUP`, depending on your wiring layout
 * the `debounce frequency multiplier` which determines the minimum duration a button must remain pressed to be considered being *clicked* in order to avoid false positives (defaults to 5)
 * the `analog value margin` which takes into account slight resistance fluctuations and ADC errors transforming the button *value* into a range (defaults to 10)
 
@@ -90,7 +91,7 @@ analogButtons.add(anotherButton);
 4. Periodic verification
 ------------------------
 
-Now all you need is to periodically activate the analog buttons verification which checks the analog pin to determine if one of the many possible conditions occurred and fires the corresponding code. The following code goes into the `loop()` fnction and needs to be executed quite often so don't introduce any `delay(...)` otherwise it will not work as expected: 
+Now all you need is to periodically activate the analog buttons verification which checks the analog pin to determine if one of the many possible conditions occurred and fires the corresponding code. The following code goes into the `loop()` function and needs to be executed as often as possible: this means you shouldn't introduce any `delay(...)` statement in your code, otherwise the library will not work as expected: 
 
 ```
 analogButtons.check();
