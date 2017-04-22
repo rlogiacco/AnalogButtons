@@ -1,5 +1,7 @@
-AnalogButtons [![Build Status](https://travis-ci.org/rlogiacco/AnalogButtons.svg?branch=master)](https://travis-ci.org/rlogiacco/AnalogButtons)
+AnalogButtons [![Build Status][travis-status]][travis]
 =============
+[travis]: https://travis-ci.org/rlogiacco/AnalogButtons
+[travis-status]: https://travis-ci.org/rlogiacco/AnalogButtons.svg?branch=master
 
 In order to reduce the number of pins used by some projects, sketches can use this library to wire multiple buttons to one single analog pin.
 
@@ -18,11 +20,11 @@ Starting from version `1.2.0`:
 
 This work is largely inspired by the AnalogButtons library available in the Arduino Playground library collection, but it represents a substantial improvement in terms of code organization as each operation is going to be defined in a separate function removing the need to determine (through `if` or `switch` statements) which button has been pressed/held.
 
-Contributions are welcome under the [Apache Public License version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html).
+Contributions are welcome under the [Apache Public License version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
 
-For wiring instructions please refer to the [sample schematics] (https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/schematic.png) or, if you prefer, to the [sample breadboard] (https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/breadboard.png).
+For wiring instructions please refer to the [sample schematics](https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/schematic.png) or, if you prefer, to the [sample breadboard](https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/breadboard.png).
 
-Also a test rig is available on [Autodesk Circuits] (https://circuits.io/circuits/4718116-analogbuttons) to play with the code and experiment with alternative layouts.
+Also a test rig is available on [Autodesk Circuits](https://circuits.io/circuits/4718116-analogbuttons) to play with the code and experiment with alternative layouts.
 
 Usage
 ============
