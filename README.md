@@ -5,6 +5,20 @@ AnalogButtons [![Build Status][travis-status]][travis]
 
 In order to reduce the number of pins used by some projects, sketches can use this library to wire multiple buttons to one single analog pin.
 
+<!-- toc -->
+
+- [Features](#features)
+- [Usage](#usage)
+  * [1. Buttons definition](#1-buttons-definition)
+  * [2. Analog pin definition](#2-analog-pin-definition)
+  * [3. Setup](#3-setup)
+  * [4. Periodic verification](#4-periodic-verification)
+
+<!-- tocstop -->
+
+Features
+============
+
 You can register a call-back function which gets called when a button is pressed or held down for the defined number of seconds.
 
 Includes a software simple de-bouncing algorithm which can be tweaked and is based on the max sampling frequency of 50Hz (one sample every 20ms)
@@ -31,8 +45,8 @@ Usage
 
 Basically the library usage can be divided into the following four steps. 
 
-1. Buttons definition
----------------------
+## 1. Buttons definition
+
 
 Each button is defined in isolation in terms of:
 
@@ -65,8 +79,7 @@ Button aButton = Button(512, &aButtonClick, &aButtonHold, 5000, 50);
 ```
 
 
-2. Analog pin definition
-------------------------
+## 2. Analog pin definition
 
 Because buttons will share the same analog pin some configuration is required in order to distinguish and manage the different buttons:
 
@@ -79,8 +92,7 @@ Because buttons will share the same analog pin some configuration is required in
 AnalogButtons analogButtons = AnalogButtons(A2);
 ```
 
-3. Setup
-------------------------
+## 3. Setup
 
 Once you have everything defined you need to link everything up, more than probably within your `setup()` function:
 
@@ -90,8 +102,7 @@ analogButtons.add(anotherButton);
 ```
 
 
-4. Periodic verification
-------------------------
+## 4. Periodic verification
 
 Now all you need is to periodically activate the analog buttons verification which checks the analog pin to determine if one of the many possible conditions occurred and fires the corresponding code. The following code goes into the `loop()` function and needs to be executed as often as possible: this means you shouldn't introduce any `delay(...)` statement in your code, otherwise the library will not work as expected: 
 
