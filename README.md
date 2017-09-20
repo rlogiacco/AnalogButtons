@@ -38,23 +38,23 @@ Contributions are welcome under the [Apache Public License version 2.0](http://w
 
 For wiring instructions please refer to the [sample schematics](https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/schematic.png) or, if you prefer, to the [sample breadboard](https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/breadboard.png).
 
-Also a test rig is available on [Autodesk Circuits](https://circuits.io/circuits/4718116-analogbuttons) to play with the code and experiment with alternative layouts.
+Also, a test rig is available on [Autodesk Circuits](https://circuits.io/circuits/4718116-analogbuttons) to play with the code and experiment with alternative layouts.
 
 Usage
 ============
 
-Basically the library usage can be divided into the following four steps. 
+Basically, the library usage can be divided into the following four steps. 
 
 ## 1. Buttons definition
 
 
 Each button is defined in isolation in terms of:
 
-* an associated `value` (an unsigned 10 bits integer in the [0-1023] range)
+* an associated `value` (an unsigned 10-bit integer in the [0-1023] range)
 * a `click function` executed upon button click
-* an `hold function` executed once the button is identified as *being held* (defaults to click function)
-* an `hold duration` determining the number of milliseconds the button must remain pressed before being identified as held down (defaults to 1 second)
-* an `hold interval` determining the number of milliseconds between each activation of the *hold function* while the button is kept pressed (defaults to 250 milliseconds)
+* a `hold function` executed once the button is identified as *being held* (defaults to click function)
+* a `hold duration` determining the number of milliseconds the button must remain pressed before being identified as held down (defaults to 1 second)
+* a `hold interval` determining the number of milliseconds between each activation of the *hold function* while the button is kept pressed (defaults to 250 milliseconds)
 
 In its simplest form, a button definition resemble something like the following which defines a button with only a click function.
 
@@ -65,7 +65,7 @@ void aButtonClick() {
 Button aButton = Button(512, &aButtonClick);
 ```
 
-In its most evoluted form a button definition looks like the following.
+In its most evolved form, a button definition looks like the following.
 
 
 ```
