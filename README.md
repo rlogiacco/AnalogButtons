@@ -1,6 +1,6 @@
 ### &#x26A0; **IMPORTANT**
  
-> Please, for support requests use the [AnalogButtons Forum](https://arduinolibs.freeflarum.com/t/analogbuttons), running a search before submitting a new case: do not abuse the Github issue tracker.
+> Please, for support requests use [Arduino StackExchange](https://arduino.stackexchange.com/questions/tagged/analogbuttons-lib), ensuring to add the `analogbuttons-lib` tag to your question: do not abuse the Github issue tracker.
 
 AnalogButtons [![Build Status][travis-status]][travis]
 =============
@@ -11,12 +11,10 @@ In order to reduce the number of pins used by some projects, sketches can use th
 
 <!-- toc -->
 
-- [Features](#features)
-- [Usage](#usage)
-  * [1. Buttons definition](#1-buttons-definition)
-  * [2. Analog pin definition](#2-analog-pin-definition)
-  * [3. Setup](#3-setup)
-  * [4. Periodic verification](#4-periodic-verification)
+- [1. Buttons definition](#1-buttons-definition)
+- [2. Analog pin definition](#2-analog-pin-definition)
+- [3. Setup](#3-setup)
+- [4. Periodic verification](#4-periodic-verification)
 
 <!-- tocstop -->
 
