@@ -11,15 +11,16 @@ In order to reduce the number of pins used by some projects, sketches can use th
 
 <!-- toc -->
 
-- [1. Buttons definition](#1-buttons-definition)
-- [2. Analog pin definition](#2-analog-pin-definition)
-- [3. Setup](#3-setup)
-- [4. Periodic verification](#4-periodic-verification)
+- [Features](#features)
+- [Usage](#usage)
+  - [1. Buttons definition](#1-buttons-definition)
+  - [2. Analog pin definition](#2-analog-pin-definition)
+  - [3. Setup](#3-setup)
+  - [4. Periodic verification](#4-periodic-verification)
 
 <!-- tocstop -->
 
-Features
-============
+# Features
 
 You can register a call-back function which gets called when a button is pressed or held down for the defined number of seconds.
 
@@ -42,8 +43,7 @@ For wiring instructions please refer to the [sample schematics](https://raw.gith
 
 Also, a test rig is available on [Autodesk Circuits](https://circuits.io/circuits/4718116-analogbuttons) to play with the code and experiment with alternative layouts.
 
-Usage
-============
+# Usage
 
 Basically, the library usage can be divided into the following four steps. 
 
