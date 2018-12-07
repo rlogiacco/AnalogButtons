@@ -15,8 +15,8 @@
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef __ANALOGBUTTONS_H
-#define __ANALOGBUTTONS_H
+#ifndef ANALOGBUTTONS_H_
+#define ANALOGBUTTONS_H_
 
 /*
  AnalogButtons
@@ -109,4 +109,4 @@ public:
 	void check();
 };
 
-#endif
+#endif // ANALOGBUTTONS_H_
