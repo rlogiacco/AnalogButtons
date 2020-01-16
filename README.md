@@ -2,6 +2,7 @@
  
 > Please, before submitting a support request read carefully this README and check if an answer already exists among [previously answered questions](https://github.com/rlogiacco/AnalogButtons/issues?q=label:question): do not oabuse of the Github issue tracker.
 
+<!-- omit in toc -->
 AnalogButtons [![Build Status][travis-status]][travis]
 =============
 [travis]: https://travis-ci.org/rlogiacco/AnalogButtons
