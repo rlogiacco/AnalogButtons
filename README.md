@@ -33,17 +33,17 @@ In order to reduce the number of pins used by some projects, sketches can use th
 
 # Features
 
-You can register a call-back function which gets called when a button is pressed or held down for the defined number of seconds.
+You can register a call-back function which gets called when a button is pressed or held down for a defined number of seconds.
 
-Includes a software simple de-bouncing algorithm which can be tweaked and is based on the max sampling frequency of 50Hz (one sample every 20ms)
+Includes a software simple de-bouncing algorithm that can be tweaked and is based on the max sampling frequency of 50Hz (one sample every 20ms)
  
 Minimum hold duration (time that must elapse before a button is considered being held) and hold interval (time that must elapse between each activation of the hold function) can both be configured.
 
-By default max number of buttons per pin is limited to 8 to limit memory consumption, but it can be controlled defining the `ANALOGBUTTONS_MAX_SIZE` macro ***before*** including this library.
+By default the maximum number of buttons per pin is limited to 8 to limit memory consumption, but it can be controlled by defining the `ANALOGBUTTONS_MAX_SIZE` macro ***before*** including this library.
 
 Starting from version `1.2.0`:
 
-* the maximum sampling frequency can be controlled defining the `ANALOGBUTTONS_SAMPLING_INTERVAL` macro, defaulting to 20
+* the maximum sampling frequency can be controlled by defining the `ANALOGBUTTONS_SAMPLING_INTERVAL` macro, defaulting to 20
 * holding a button does not imply a *click* event being fired, greatly simplifying writing complex user interfaces 
 
 This work is largely inspired by the AnalogButtons library available in the Arduino Playground library collection, but it represents a substantial improvement in terms of code organization as each operation is going to be defined in a separate function removing the need to determine (through `if` or `switch` statements) which button has been pressed/held.
@@ -52,7 +52,13 @@ Contributions are welcome under the [Apache Public License version 2.0](http://w
 
 For wiring instructions please refer to the [sample schematics](https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/schematic.png) or, if you prefer, to the [sample breadboard](https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/breadboard.png).
 
-Also, a test rig is available on [Autodesk Circuits](https://circuits.io/circuits/4718116-analogbuttons) to play with the code and experiment with alternative layouts.
+![](https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/breadboard.png)
+
+Here is an animation showing how the voltage at the analog pin varies depending on which button gets pressed.
+
+![](https://github.com/rlogiacco/AnalogButtons/raw/gh-pages/circuit.png)
+
+Also, a [test rig is available](https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgpABZsKBTAWjDACgBzEbQvWsQt160afKpDYAlEChpU8VMMRQgFUdXOrio0BGwBOQvj2PCaA9SjQSAzjM1gUfJ30djwIAC76ArgwMyeK5ORuAhVDQYcGwA7vbyVLKK4bHxYc4OGIIShi7gWaFgBYnWbHZJ+YJ5Rdke3n6pFTVpVjRQAXmtoV2K8GUtsoHOg4pevv5xFV1TGCo5QzKz3UtUvLYtS50rdeONmpgqFdho7blB3CcmF9qR60cnecfaEPUToU-Lc6lXB90j38IuldmhI4sCCsCUmDhG5QmoJAB5OERY6qUag96XYTAthAA) to play with the circuit and experiment with alternative layouts.
 
 # Usage
 
@@ -60,16 +66,15 @@ Basically, the library usage can be divided into the following four steps.
 
 ## 1. Buttons definition
 
-
 Each button is defined in isolation in terms of:
 
-* an associated `value` (an unsigned 10-bit integer in the [0-1023] range)
+* an associated `value` (an unsigned integer within the board ADC range)
 * a `click function` executed upon button click
 * a `hold function` executed once the button is identified as *being held* (defaults to click function)
 * a `hold duration` determining the number of milliseconds the button must remain pressed before being identified as held down (defaults to 1 second)
 * a `hold interval` determining the number of milliseconds between each activation of the *hold function* while the button is kept pressed (defaults to 250 milliseconds)
 
-In its simplest form, a button definition resemble something like the following which defines a button with only a click function.
+In its simplest form, a button definition resembles something like the following which defines a button with only a click function.
 
 ```
 void aButtonClick() {
@@ -78,7 +83,7 @@ void aButtonClick() {
 Button aButton = Button(512, &aButtonClick);
 ```
 
-In its most evolved form, a button definition looks like the following.
+In its most complex form, a button definition includes also a reference to a _hold function_ and the parameters to detect the _hold minimum time_ and _reset delay_, looking like the following.
 
 
 ```
@@ -94,7 +99,7 @@ Button aButton = Button(512, &aButtonClick, &aButtonHold, 5000, 50);
 
 ## 2. Analog pin definition
 
-Because buttons will share the same analog pin some configuration is required in order to distinguish and manage the different buttons:
+Because buttons will share the same analog pin, some configuration is required to distinguish and manage the different buttons:
 
 * the `analog pin` the buttons will be attached to
 * the `pin mode` to set on the analog pin, it can either be `INPUT` (default value) or `INPUT_PULLUP`, depending on your wiring layout
@@ -117,7 +122,7 @@ analogButtons.add(anotherButton);
 
 ## 4. Periodic verification
 
-Now all you need is to periodically activate the analog buttons verification which checks the analog pin to determine if one of the many possible conditions occurred and fires the corresponding code. The following code goes into the `loop()` function and needs to be executed as often as possible: this means you shouldn't introduce any `delay(...)` statement in your code, otherwise the library will not work as expected: 
+Now all you need is to periodically activate the analog buttons verification which checks the analog pin to determine if one of the many possible conditions occurred and fires the corresponding code. The following code goes into the `loop()` function and needs to be executed as often as possible: this means you shouldn't introduce any `delay(...)` statement in your code, otherwise, the library will not work as expected: 
 
 ```
 analogButtons.check();
