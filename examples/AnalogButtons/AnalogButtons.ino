@@ -1,6 +1,10 @@
 #include <AnalogButtons.h>
 
+#ifndef A1 // esp32 doesn't define analog pins
+#define ANALOG_PIN 33
+#else
 #define ANALOG_PIN A1
+#endif
 
 // A call back function that you pass into the constructor of AnalogButtons, see example
 // below. Alternativly you could extend the Button class and re-define the methods pressed() 
