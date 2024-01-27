@@ -1,12 +1,22 @@
-### &#x26A0; **IMPORTANT**
- 
+### ⚠ **IMPORTANT**
+
 > Please, before submitting a support request read carefully this README and check if an answer already exists among [previously answered questions](https://github.com/rlogiacco/AnalogButtons/discussions): do not abuse of the Github issue tracker.
 
 <!-- omit in toc -->
-AnalogButtons [![Build Status][travis-status]][travis]
-=============
-[travis]: https://travis-ci.org/rlogiacco/AnalogButtons
-[travis-status]: https://travis-ci.org/rlogiacco/AnalogButtons.svg?branch=master
+<h1>
+  AnalogButtons
+  <a href=https://github.com/rlogiacco/AnalogButtons/stargazers><img alt="GitHub stars" src=https://img.shields.io/github/stars/rlogiacco/AnalogButtons.svg?style=social&label=Star /></a>
+  <a href=https://github.com/rlogiacco/AnalogButtons/network><img alt="GitHub forks" src=https://img.shields.io/github/forks/rlogiacco/AnalogButtons.svg?style=social&label=Fork /></a>
+?style=social /></a>
+</h1>
+
+[![GitHub version](https://img.shields.io/github/release/rlogiacco/AnalogButtons.svg)](https://github.com/rlogiacco/AnalogButtons/releases)
+[![GitHub download](https://img.shields.io/github/downloads/rlogiacco/AnalogButtons/total.svg)](https://github.com/rlogiacco/AnalogButtons/releases/latest)
+[![GitHub stars](https://img.shields.io/github/stars/rlogiacco/AnalogButtons.svg)](https://github.com/rlogiacco/AnalogButtons/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/rlogiacco/AnalogButtons.svg)](https://github.com/rlogiacco/AnalogButtons/issues)
+[![Build Status](https://github.com/rlogiacco/AnalogButtons/actions/workflows/main.yml/badge.svg)](https://github.com/rlogiacco/AnalogButtons/actions/workflows/main.yml)
+[![License](https://img.shields.io/badge/license-LGPL%203-blue.svg)](https://github.com/rlogiacco/AnalogButtons/blob/master/LICENSE)
+
 
 In order to reduce the number of pins used by some projects, sketches can use this library to wire multiple buttons to one single analog pin.
 
