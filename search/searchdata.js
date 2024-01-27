@@ -1,8 +1,8 @@
 var indexSectionsWithContent =
 {
-  0: "&ab",
+  0: "ab⚠",
   1: "ab",
-  2: "&"
+  2: "⚠"
 };
 
 var indexSectionNames =
