@@ -7,7 +7,6 @@
   AnalogButtons
   <a href=https://github.com/rlogiacco/AnalogButtons/stargazers><img alt="GitHub stars" src=https://img.shields.io/github/stars/rlogiacco/AnalogButtons.svg?style=social&label=Star /></a>
   <a href=https://github.com/rlogiacco/AnalogButtons/network><img alt="GitHub forks" src=https://img.shields.io/github/forks/rlogiacco/AnalogButtons.svg?style=social&label=Fork /></a>
-?style=social /></a>
 </h1>
 
 [![GitHub version](https://img.shields.io/github/release/rlogiacco/AnalogButtons.svg)](https://github.com/rlogiacco/AnalogButtons/releases)
