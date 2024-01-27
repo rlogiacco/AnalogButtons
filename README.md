@@ -56,7 +56,7 @@ For wiring instructions please refer to the [sample schematics](https://raw.gith
 
 Here is an animation showing how the voltage at the analog pin varies depending on which button gets pressed.
 
-![](https://github.com/rlogiacco/AnalogButtons/raw/gh-pages/circuit.png)
+![](https://github.com/rlogiacco/AnalogButtons/raw/master/circuit.png)
 
 Also, a [test rig is available](https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgpABZsKBTAWjDACgBzEbQvWsQt160afKpDYAlEChpU8VMMRQgFUdXOrio0BGwBOQvj2PCaA9SjQSAzjM1gUfJ30djwIAC76ArgwMyeK5ORuAhVDQYcGwA7vbyVLKK4bHxYc4OGIIShi7gWaFgBYnWbHZJ+YJ5Rdke3n6pFTVpVjRQAXmtoV2K8GUtsoHOg4pevv5xFV1TGCo5QzKz3UtUvLYtS50rdeONmpgqFdho7blB3CcmF9qR60cnecfaEPUToU-Lc6lXB90j38IuldmhI4sCCsCUmDhG5QmoJAB5OERY6qUag96XYTAthAA) to play with the circuit and experiment with alternative layouts.
 
