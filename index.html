@@ -84,19 +84,22 @@ $(function() {
 </ul>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Features</h1>
-<p >You can register a call-back function which gets called when a button is pressed or held down for the defined number of seconds.</p>
-<p >Includes a software simple de-bouncing algorithm which can be tweaked and is based on the max sampling frequency of 50Hz (one sample every 20ms)</p>
+<p >You can register a call-back function which gets called when a button is pressed or held down for a defined number of seconds.</p>
+<p >Includes a software simple de-bouncing algorithm that can be tweaked and is based on the max sampling frequency of 50Hz (one sample every 20ms)</p>
 <p >Minimum hold duration (time that must elapse before a button is considered being held) and hold interval (time that must elapse between each activation of the hold function) can both be configured.</p>
-<p >By default max number of buttons per pin is limited to 8 to limit memory consumption, but it can be controlled defining the <code>ANALOGBUTTONS_MAX_SIZE</code> macro <em><b>before</b></em> including this library.</p>
+<p >By default the maximum number of buttons per pin is limited to 8 to limit memory consumption, but it can be controlled by defining the <code>ANALOGBUTTONS_MAX_SIZE</code> macro <em><b>before</b></em> including this library.</p>
 <p >Starting from version <code>1.2.0</code>:</p>
 <ul>
-<li>the maximum sampling frequency can be controlled defining the <code>ANALOGBUTTONS_SAMPLING_INTERVAL</code> macro, defaulting to 20</li>
+<li>the maximum sampling frequency can be controlled by defining the <code>ANALOGBUTTONS_SAMPLING_INTERVAL</code> macro, defaulting to 20</li>
 <li>holding a button does not imply a <em>click</em> event being fired, greatly simplifying writing complex user interfaces</li>
 </ul>
 <p >This work is largely inspired by the <a class="el" href="class_analog_buttons.html">AnalogButtons</a> library available in the Arduino Playground library collection, but it represents a substantial improvement in terms of code organization as each operation is going to be defined in a separate function removing the need to determine (through <code>if</code> or <code>switch</code> statements) which button has been pressed/held.</p>
 <p >Contributions are welcome under the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache Public License version 2.0</a>.</p>
 <p >For wiring instructions please refer to the <a href="https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/schematic.png">sample schematics</a> or, if you prefer, to the <a href="https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/breadboard.png">sample breadboard</a>.</p>
-<p >Also, a test rig is available on <a href="https://circuits.io/circuits/4718116-analogbuttons">Autodesk Circuits</a> to play with the code and experiment with alternative layouts.</p>
+<p ><img src="https://raw.githubusercontent.com/rlogiacco/AnalogButtons/master/breadboard.png" alt="" class="inline"/></p>
+<p >Here is an animation showing how the voltage at the analog pin varies depending on which button gets pressed.</p>
+<p ><img src="https://github.com/rlogiacco/AnalogButtons/raw/gh-pages/circuit.png" alt="" class="inline"/></p>
+<p >Also, a <a href="https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgpABZsKBTAWjDACgBzEbQvWsQt160afKpDYAlEChpU8VMMRQgFUdXOrio0BGwBOQvj2PCaA9SjQSAzjM1gUfJ30djwIAC76ArgwMyeK5ORuAhVDQYcGwA7vbyVLKK4bHxYc4OGIIShi7gWaFgBYnWbHZJ+YJ5Rdke3n6pFTVpVjRQAXmtoV2K8GUtsoHOg4pevv5xFV1TGCo5QzKz3UtUvLYtS50rdeONmpgqFdho7blB3CcmF9qR60cnecfaEPUToU-Lc6lXB90j38IuldmhI4sCCsCUmDhG5QmoJAB5OERY6qUag96XYTAthAA">test rig is available</a> to play with the circuit and experiment with alternative layouts.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Usage</h1>
 <p >Basically, the library usage can be divided into the following four steps.</p>
@@ -104,18 +107,18 @@ Usage</h1>
 1. Buttons definition</h2>
 <p >Each button is defined in isolation in terms of:</p>
 <ul>
-<li>an associated <code>value</code> (an unsigned 10-bit integer in the [0-1023] range)</li>
+<li>an associated <code>value</code> (an unsigned integer within the board ADC range)</li>
 <li>a <code>click function</code> executed upon button click</li>
 <li>a <code>hold function</code> executed once the button is identified as <em>being held</em> (defaults to click function)</li>
 <li>a <code>hold duration</code> determining the number of milliseconds the button must remain pressed before being identified as held down (defaults to 1 second)</li>
 <li>a <code>hold interval</code> determining the number of milliseconds between each activation of the <em>hold function</em> while the button is kept pressed (defaults to 250 milliseconds)</li>
 </ul>
-<p >In its simplest form, a button definition resemble something like the following which defines a button with only a click function.</p>
+<p >In its simplest form, a button definition resembles something like the following which defines a button with only a click function.</p>
 <div class="fragment"><div class="line">void aButtonClick() {</div>
 <div class="line">  // do something</div>
 <div class="line">}</div>
 <div class="line">Button aButton = Button(512, &amp;aButtonClick);</div>
-</div><!-- fragment --><p >In its most evolved form, a button definition looks like the following.</p>
+</div><!-- fragment --><p >In its most complex form, a button definition includes also a reference to a <em>hold function</em> and the parameters to detect the <em>hold minimum time</em> and <em>reset delay</em>, looking like the following.</p>
 <div class="fragment"><div class="line">void aButtonClick() {</div>
 <div class="line">  // do something</div>
 <div class="line">}</div>
@@ -125,7 +128,7 @@ Usage</h1>
 <div class="line">Button aButton = Button(512, &amp;aButtonClick, &amp;aButtonHold, 5000, 50);</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md4"></a>
 2. Analog pin definition</h2>
-<p >Because buttons will share the same analog pin some configuration is required in order to distinguish and manage the different buttons:</p>
+<p >Because buttons will share the same analog pin, some configuration is required to distinguish and manage the different buttons:</p>
 <ul>
 <li>the <code>analog pin</code> the buttons will be attached to</li>
 <li>the <code>pin mode</code> to set on the analog pin, it can either be <code>INPUT</code> (default value) or <code>INPUT_PULLUP</code>, depending on your wiring layout</li>
@@ -140,7 +143,7 @@ Usage</h1>
 <div class="line">analogButtons.add(anotherButton);</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
 4. Periodic verification</h2>
-<p >Now all you need is to periodically activate the analog buttons verification which checks the analog pin to determine if one of the many possible conditions occurred and fires the corresponding code. The following code goes into the <code>loop()</code> function and needs to be executed as often as possible: this means you shouldn't introduce any <code>delay(...)</code> statement in your code, otherwise the library will not work as expected:</p>
+<p >Now all you need is to periodically activate the analog buttons verification which checks the analog pin to determine if one of the many possible conditions occurred and fires the corresponding code. The following code goes into the <code>loop()</code> function and needs to be executed as often as possible: this means you shouldn't introduce any <code>delay(...)</code> statement in your code, otherwise, the library will not work as expected:</p>
 <div class="fragment"><div class="line">analogButtons.check();</div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
