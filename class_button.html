@@ -73,8 +73,7 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a21f3fd03220df6f31ef81d9980cf0a54"><td class="memItemLeft" align="right" valign="top"><a id="a21f3fd03220df6f31ef81d9980cf0a54" name="a21f3fd03220df6f31ef81d9980cf0a54"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Button</b> (uint16_t value, void(*clickFunction)(void)=0, void(*holdFunction)(void)=0, uint16_t holdDuration=1000, uint16_t holdInterval=250)</td></tr>
+<tr class="memitem:a21f3fd03220df6f31ef81d9980cf0a54"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#a21f3fd03220df6f31ef81d9980cf0a54">Button</a> (uint16_t value, void(*clickFunction)(void)=0, void(*holdFunction)(void)=0, uint16_t holdDuration=1000, uint16_t holdInterval=250)</td></tr>
 <tr class="separator:a21f3fd03220df6f31ef81d9980cf0a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae28deca131650b40d19cb9a38ed07caa"><td class="memItemLeft" align="right" valign="top"><a id="ae28deca131650b40d19cb9a38ed07caa" name="ae28deca131650b40d19cb9a38ed07caa"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>pressed</b> ()</td></tr>
@@ -89,6 +88,64 @@ Friends</h2></td></tr>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>AnalogButtons</b></td></tr>
 <tr class="separator:a003cca1297fc35fde010385deb654e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a21f3fd03220df6f31ef81d9980cf0a54" name="a21f3fd03220df6f31ef81d9980cf0a54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21f3fd03220df6f31ef81d9980cf0a54">&#9670;&nbsp;</a></span>Button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Button::Button </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void)&#160;</td>
+          <td class="paramname"><em>clickFunction</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(void)&#160;</td>
+          <td class="paramname"><em>holdFunction</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>holdDuration</em> = <code>1000</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>holdInterval</em> = <code>250</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Creates an instance representing a single button.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>is the ADC value associated to the voltage reading for this button, will be combined with the <code>margin</code> value </td></tr>
+    <tr><td class="paramname">clickFunction</td><td>is a reference to the function executed upon button click </td></tr>
+    <tr><td class="paramname">holdFunction</td><td>is a reference to the executed upon button hold </td></tr>
+    <tr><td class="paramname">holdDuration</td><td>determines the number of milliseconds the button must remain pressed before being identified as held down (defaults to 1 second) </td></tr>
+    <tr><td class="paramname">holdInterval</td><td>determines the number of milliseconds between each activation of the <em>hold function</em> while the button is kept pressed (defaults to 250 milliseconds) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_analog_buttons_8h_source.html">AnalogButtons.h</a></li>
 <li>AnalogButtons.cpp</li>

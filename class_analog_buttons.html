@@ -72,16 +72,102 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a40e08ef30fa4df3ee2705de9325bd162"><td class="memItemLeft" align="right" valign="top"><a id="a40e08ef30fa4df3ee2705de9325bd162" name="a40e08ef30fa4df3ee2705de9325bd162"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>AnalogButtons</b> (uint8_t pin, uint8_t mode=INPUT, uint16_t debounce=5, uint8_t margin=10)</td></tr>
+<tr class="memitem:a40e08ef30fa4df3ee2705de9325bd162"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_analog_buttons.html#a40e08ef30fa4df3ee2705de9325bd162">AnalogButtons</a> (uint8_t pin, uint8_t mode=INPUT, uint16_t debounce=5, uint8_t margin=10)</td></tr>
 <tr class="separator:a40e08ef30fa4df3ee2705de9325bd162"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91b968d9edb09d7f8c76c1968c31257b"><td class="memItemLeft" align="right" valign="top"><a id="a91b968d9edb09d7f8c76c1968c31257b" name="a91b968d9edb09d7f8c76c1968c31257b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add</b> (<a class="el" href="class_button.html">Button</a> button)</td></tr>
+<tr class="memitem:a91b968d9edb09d7f8c76c1968c31257b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_analog_buttons.html#a91b968d9edb09d7f8c76c1968c31257b">add</a> (<a class="el" href="class_button.html">Button</a> button)</td></tr>
 <tr class="separator:a91b968d9edb09d7f8c76c1968c31257b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05aff1c5e5811c6aad04acaf2e5c7571"><td class="memItemLeft" align="right" valign="top"><a id="a05aff1c5e5811c6aad04acaf2e5c7571" name="a05aff1c5e5811c6aad04acaf2e5c7571"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>check</b> ()</td></tr>
+<tr class="memitem:a05aff1c5e5811c6aad04acaf2e5c7571"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_analog_buttons.html#a05aff1c5e5811c6aad04acaf2e5c7571">check</a> ()</td></tr>
 <tr class="separator:a05aff1c5e5811c6aad04acaf2e5c7571"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a40e08ef30fa4df3ee2705de9325bd162" name="a40e08ef30fa4df3ee2705de9325bd162"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40e08ef30fa4df3ee2705de9325bd162">&#9670;&nbsp;</a></span>AnalogButtons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AnalogButtons::AnalogButtons </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>mode</em> = <code>INPUT</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>debounce</em> = <code>5</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>margin</em> = <code>10</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Creates the instance handling an analog pin to support multiple buttons.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pin</td><td>the analog pin this instance will manage </td></tr>
+    <tr><td class="paramname">mode</td><td>the pin mode (defaults to INPUT) </td></tr>
+    <tr><td class="paramname">debounce</td><td>determines the minimum duration a button must remain pressed to be considered being <em>clicked</em> in order to avoid false positives (defaults to 5) </td></tr>
+    <tr><td class="paramname">margin</td><td>takes into account slight resistance fluctuations and ADC errors transforming the button <em>value</em> into a range (defaults to 10) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a91b968d9edb09d7f8c76c1968c31257b" name="a91b968d9edb09d7f8c76c1968c31257b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91b968d9edb09d7f8c76c1968c31257b">&#9670;&nbsp;</a></span>add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AnalogButtons::add </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_button.html">Button</a>&#160;</td>
+          <td class="paramname"><em>button</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Adds a button to this handler. </p>
+
+</div>
+</div>
+<a id="a05aff1c5e5811c6aad04acaf2e5c7571" name="a05aff1c5e5811c6aad04acaf2e5c7571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05aff1c5e5811c6aad04acaf2e5c7571">&#9670;&nbsp;</a></span>check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AnalogButtons::check </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Must be executed perioodically in order to have the button functions activated accordingly to the button pressed. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_analog_buttons_8h_source.html">AnalogButtons.h</a></li>
 <li>AnalogButtons.cpp</li>
