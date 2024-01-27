@@ -58,6 +58,15 @@ class Button {
 	friend class AnalogButtons;
 public:
 	Button() {};
+	/**
+	 * Creates an instance representing a single button.
+	 *
+	 * @param value is the ADC value associated to the voltage reading for this button, will be combined with the `margin` value
+	 * @param clickFunction is a reference to the function executed upon button click
+	 * @param holdFunction is a reference to the executed upon button hold
+	 * @param holdDuration determines the number of milliseconds the button must remain pressed before being identified as held down (defaults to 1 second)
+	 * @param holdInterval determines the number of milliseconds between each activation of the *hold function* while the button is kept pressed (defaults to 250 milliseconds)
+	 */
 	Button(uint16_t value, void (*clickFunction)(void) = 0, void (*holdFunction)(void) = 0, uint16_t holdDuration = 1000, uint16_t holdInterval = 250);
 
 	// Override this function if you want
@@ -102,10 +111,24 @@ private:
 	Button* debounceButton;
 
 public:
+	/**
+	 * Creates the instance handling an analog pin to support multiple buttons.
+	 *
+	 * @param pin the analog pin this instance will manage
+	 * @param mode the pin mode (defaults to INPUT)
+	 * @param debounce determines the minimum duration a button must remain pressed to be considered being *clicked* in order to avoid false positives (defaults to 5)
+	 * @param margin takes into account slight resistance fluctuations and ADC errors transforming the button *value* into a range (defaults to 10)
+	 */
 	AnalogButtons(uint8_t pin, uint8_t mode = INPUT, uint16_t debounce = 5, uint8_t margin = 10);
 
+	/**
+	 * Adds a button to this handler.
+	 */
 	void add(Button button);
 
+	/**
+	 * Must be executed perioodically in order to have the button functions activated accordingly to the button pressed.
+	 */
 	void check();
 };
 
